@@ -1,0 +1,62 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+#[[ $- != *i* ]] && return
+
+#alias ls='ls --color=auto'
+#alias grep='grep --color=auto'
+#PS1='[\u@\h \W]\$ '
+
+#Cuda/CUDNN
+export PATH=/opt/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
+
+#Rootless Docker
+export PATH=/home/testuser/bin:$PATH
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
+
+#Zoxide
+eval "$(zoxide init bash)"
+
+#Opam
+ test -r /home/phaedrus/.opam/opam-init/init.sh && . /home/phaedrus/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+#Rust
+export PATH="$PATH:/home/phaedrus/.cargo/bin"
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/phaedrus/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/phaedrus/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/phaedrus/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/phaedrus/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+#JAVA
+export PATH=$PATH:/usr/lib/jvm/java-22-openjdk/bin
+
+#Python
+export PATH=$PATH:/usr/bin/python
+
+#Sudo Neovim
+alias snvim="sudo -E nvim"
+
+#Make
+export PATH=$PATH:/usr/local/bin
+
+#HF Large Files
+export HF_HUB_ENABLE_HF_TRANSFER=1
