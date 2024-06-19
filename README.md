@@ -14,7 +14,9 @@ Step 3: Verify the Environment
 To verify that the environment was created correctly, run:
 conda list
 
-To download Nemotron4 340 B, make sure that you have the appropriate ~/.bashrc or ~/.zshrc config and run source ~/.bashrc or source ~/.zshrc depending on what you're using. You can only use the huggingface-cli command if you have a huggingface account and have a huggingface token. Both of which are free.
+This command will list all the packages installed in the myenv environment.
+
+Step 3.5 (Optional- only if you want to download local models).To download Nemotron4 340 B, make sure that you have the appropriate ~/.bashrc or ~/.zshrc config and run source ~/.bashrc or source ~/.zshrc depending on what you're using. You can only use the huggingface-cli command if you have a huggingface account and have a huggingface token. Both of which are free.
 
 huggingface-cli download nvidia/Nemotron-4-340B-Base
 
@@ -22,9 +24,10 @@ huggingface-cli download nvidia/Nemotron-4-340B-Instruct
 
 huggingface-cli download nvidia/Nemotron-4-340B-Reward
 
-This command will list all the packages installed in the myenv environment.
 Step 4: Deactivate the Environment
 When you are finished working in the virtual environment, deactivate it by running:
 conda deactivate
 
 This will return you to your base environment.
+
+GLHF
