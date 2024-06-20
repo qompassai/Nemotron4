@@ -23,11 +23,13 @@ eval "$(zoxide init bash)"
 #Opam
  test -r /home/phaedrus/.opam/opam-init/init.sh && . /home/phaedrus/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-#Rust
-export PATH="$PATH:/home/phaedrus/.cargo/bin"
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+#Rust 
+# To check version of rust and cargo use the below
+##rustc --version 
+##cargo --version
+export PATH=$PATH:/usr/bin/cargo:/usr/bin/rustc
 
-# bun
+# Bun.js
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
@@ -52,11 +54,34 @@ export PATH=$PATH:/usr/lib/jvm/java-22-openjdk/bin
 #Python
 export PATH=$PATH:/usr/bin/python
 
-#Sudo Neovim
+#Neovim
 alias snvim="sudo -E nvim"
-
+export SUDO_EDITOR=nvim
+export EDITOR=nvim
 #Make
 export PATH=$PATH:/usr/local/bin
 
-#HF Large Files
+#Transferring Large HF Large Files
 export HF_HUB_ENABLE_HF_TRANSFER=1
+
+#Golang
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+
+#Lua
+export PATH=$PATH:/usr/bin/
+
+#Podman
+export PATH=$PATH:/usr/lib/podman
+
+#Haskell
+export PATH="$HOME/.local/bin:$PATH"
+export PATH=$HOME/.stack/programs/x86_64-linux/ghc-tinfo6-9.6.5/bin:$PATH
+#TensorRT
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/TensorRT-10.1.0.27/lib
+export PATH=$PATH:/opt/TensorRT-10.1.0.27/bin
+
+
+#Docker BuildX
+export BUILDX_EXPERIMENTAL=1
